@@ -12,58 +12,61 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-        }
-
-
-
-
-        table{
-            width: 280px;
-            height: 560px;
-            margin: 6% auto;
-            padding: inherit;
-            border-radius: 30px;
-            overflow: hidden;
-            background: linear-gradient(to right, darkseagreen, seagreen);
-        }
-        td{
-            width: 80px;
-            height: 160px;
-            margin: 6% auto;
-            padding: inherit;
-            border-radius: 30px;
 
         }
 
 
 
+
+
+        div  {
+            border-radius: 20px;
+            background-color: darkseagreen;
+            padding: 10%;
+            margin: 5%;
+            height: auto;
+            width: 20%;
+            height: 70%;
+            border: black;
+            margin-right: auto;
+            margin-left: auto;
+            border-bottom: 2px solid darkseagreen;
+            box-shadow: 0 0 20px 9px darkolivegreen;
+        }
 
 
         button {
-            top: 0;
-            left: 0;
-            width: 80px;
+
+            width: 220px;
+            margin: 5px;
+            padding: 10px;
             height: 100%;
             background: linear-gradient(to right, whitesmoke, darkseagreen);
             border-radius: 20px;
             transition: .5s;
+            box-shadow: 0 0 20px 9px darkolivegreen;
         }
+        td{
+            width: 120px;
+            margin: 20px;
+            padding: 10px;
+            height: 100%;
+            border-radius: 20px;
 
+        }
+        input{
+            top: 100px;
+            padding-left: 100px;
+            width: 100px;
+            height: 50px;
+            border-radius: 30px;
 
-
-
-
-
-
-        span {
-            color: black;
-            font-size: 12px;
+            text-align: center;
+            transition: .5s;
             font-family: "Bookman Old Style";
-            bottom: 50px;
-            width: 50px;
-            height: 40%;
 
         }
+
 
 
 
@@ -124,15 +127,11 @@
     </script>
 </head>
 <body>
-
+<div class="container">
         <h4 style="text-align: center" >Add Land Use</h4>
         <form onsubmit="return false">
 
-
-                <table>
-
-
-
+            <table>
                     <tr>
                         <td>Description:</td>
                         <td> <input id="landuse_description" type="text" size="40">
@@ -143,22 +142,13 @@
                         <td>Land Use Type:</td>
                         <td><input id = "landuse_landusetype" type="text"  size="30"></td>
                     </tr>
+            </table>
 
-                </table>
-            </div>
-
-
+            <button id="add_landuse_but">Add</button>
+            <p> <button type="button" id="return_but"> <a href="mainmenu.html">Return</a></button></p>
 
 
         </form>
-        <div class="div_but" style="text-align: center">
-
-            <button id="add_landuse_but">Add Land Use</button>
-            <button>RETURN</button>
-        </div>
-
-    </div>
 </div>
-
 </body>
 </html>
