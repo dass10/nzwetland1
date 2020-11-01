@@ -4,69 +4,84 @@
     <meta charset="UTF-8">
     <title>ADD Land use</title>
     <style type="text/css">
-
-
-
         body{
             background-image: url("https://images.pexels.com/photos/5645557/pexels-photo-5645557.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-
         }
 
-
-
-
-
-        div  {
-            border-radius: 20px;
-            background-color: darkseagreen;
+        .container {
+            border-radius:50%;
             padding: 10%;
-            margin: 5%;
-            height: auto;
-            width: 20%;
-            height: 70%;
+            margin: 20%;
+            width: fit-content;
+            height: fit-content;
             border: black;
             margin-right: auto;
             margin-left: auto;
-            border-bottom: 2px solid darkseagreen;
-            box-shadow: 0 0 20px 9px darkolivegreen;
+            background: linear-gradient(to right, darkseagreen, darkolivegreen);
         }
 
 
         button {
-
-            width: 220px;
-            margin: 5px;
-            padding: 10px;
+            font-family: "Bookman Old Style";
+            width: 200px;
+            margin: 30px;
+            padding: 30px;
             height: 100%;
-            background: linear-gradient(to right, whitesmoke, darkseagreen);
+            background: linear-gradient(to right, whitesmoke, olive);
             border-radius: 20px;
             transition: .5s;
             box-shadow: 0 0 20px 9px darkolivegreen;
+
+        }
+        div{
+
+            border-radius: 30px;
+            margin: 10px;
+            padding:10px;
+            width: fit-content;
+            height: 40%;
         }
         td{
-            width: 120px;
+            font-size: large;
+            font-family: "Bookman Old Style";
+            width: fit-content;
             margin: 20px;
             padding: 10px;
             height: 100%;
             border-radius: 20px;
 
         }
-        input{
-            top: 100px;
-            padding-left: 100px;
-            width: 100px;
-            height: 50px;
-            border-radius: 30px;
 
+        select{
+            border-radius: 30px;
+            height: 30px;
+            width: 60%;
+        }
+        input{
             text-align: center;
+            font-size: large;
+            margin: 30px;
+            padding: 20px;
+            width:fit-content;
+            height: fit-content;
+            border-radius: 30px;
             transition: .5s;
             font-family: "Bookman Old Style";
+        }
+        h1{
+            font-size: xx-large;
+            font-family: "Bookman Old Style";
+            text-align: center;
+        }
+        label{
+            font-size: large;
+            font-family: "Bookman Old Style";
+            text-align: center;
 
         }
-
 
 
 
@@ -128,8 +143,10 @@
 </head>
 <body>
 <div class="container">
-        <h4 style="text-align: center" >Add Land Use</h4>
+    <div>
+        <h4 style="text-align: center">Add Land use</h4>
         <form onsubmit="return false">
+
 
             <table>
                     <tr>
@@ -144,11 +161,14 @@
                     </tr>
             </table>
 
-            <button id="add_landuse_but">Add</button>
-            <p> <button type="button" id="return_but"> <a href="mainmenu.html">Return</a></button></p>
-
 
         </form>
+    <div class="div_but" style="text-align: center">
+    <button id="add_landuse_but">Add</button>
+        <button >RETURN</button>
+    </div>
+
+</div>
 </div>
 </body>
 </html>
