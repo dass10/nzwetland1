@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Habitat</title>
+
     <style type="text/css">
-
-
-
         body{
             background-image: url("https://images.pexels.com/photos/5645557/pexels-photo-5645557.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-
         }
 
         .container {
-            border-radius: 20px;
+            border-radius: 70px;
 
-            padding: 10%;
-            margin: 20%;
+            padding: 5%;
+            margin: 5%;
 
-            width: 20%;
+            width: fit-content;
             height: 50%;
             border: black;
             margin-right: auto;
@@ -39,6 +36,8 @@
             background: linear-gradient(to right, whitesmoke, darkseagreen);
             border-radius: 20px;
             transition: .5s;
+            margin-right: auto;
+            margin-left: auto;
             box-shadow: 0 0 20px 9px darkolivegreen;
         }
         div{
@@ -138,7 +137,13 @@
                     url: 'http://nzwetland.herokuapp.com/api/habitat/'+deletehabitat,
                     success: function (data) {
                         alert('Habitat  deleted successfully');
-                        location.reload();
+                        if (confirm(' Delete another Habitat?')) {
+                            location.reload();}
+                        else{
+                            console.log("");
+                            window.location.href = "mainMenu.html";
+                        }
+
                     },
                     error: function (err) {
                         console.log(err);
@@ -150,6 +155,7 @@
             });
         })
     </script>
+    <script src="js/script.js"></script>
 </head>
 <body>
 <div class="container">
@@ -183,7 +189,7 @@
         <div class="div_but" style="text-align: center">
 
             <button id="delete_but">DELETE</button>
-            <button >RETURN</button>
+            <button type="button" ><a href="mainMenu.html"> Return</a></button>
         </div>
 
     </div>

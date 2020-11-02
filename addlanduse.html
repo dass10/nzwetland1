@@ -15,21 +15,22 @@
             border-radius:50%;
             padding: 10%;
             margin: 20%;
-            width: fit-content;
+            width: 300px;
             height: fit-content;
             border: black;
             margin-right: auto;
             margin-left: auto;
             background: linear-gradient(to right, darkseagreen, darkolivegreen);
+            box-shadow: 0 0 20px 9px darkolivegreen;
         }
 
 
         button {
             font-family: "Bookman Old Style";
-            width: 200px;
-            margin: 30px;
-            padding: 30px;
-            height: 100%;
+            width: 150px;
+            margin: 10px;
+            padding: 10px;
+            height: 80%;
             background: linear-gradient(to right, whitesmoke, olive);
             border-radius: 20px;
             transition: .5s;
@@ -55,17 +56,13 @@
 
         }
 
-        select{
-            border-radius: 30px;
-            height: 30px;
-            width: 60%;
-        }
+
         input{
             text-align: center;
             font-size: large;
-            margin: 30px;
-            padding: 20px;
-            width:fit-content;
+            margin: 15px;
+            padding: 15px;
+            width:170px;
             height: fit-content;
             border-radius: 30px;
             transition: .5s;
@@ -130,7 +127,12 @@
                     },
                     success: function (data) {
                         alert('land use added successfully');
-                        location.reload();
+                        if (confirm(' Add another land use?')) {
+                            location.reload();}
+                        else{
+                            console.log("");
+                            window.location.href = "mainmenu.html";
+                        }
                     },
 
 
@@ -144,7 +146,7 @@
 <body>
 <div class="container">
     <div>
-        <h4 style="text-align: center">Add Land use</h4>
+        <h1 style="text-align: center">Add Land use</h1>
         <form onsubmit="return false">
 
 
