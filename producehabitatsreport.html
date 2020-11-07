@@ -14,6 +14,7 @@
 
         $(document).ready(function () {
             $("#show_report").click(function () {
+                $("#habitat_report").empty();
                 $.ajax({
                     type: 'Get',
                     dataType: 'JSON',
@@ -25,16 +26,16 @@
                         while (i < data.length) {
                             habitat = data[i];
                             $("#habitat_report").append("<hr>" +
-                                " Habitat ID: " + habitat.id + "<br>" +
-                                " Description: " + habitat.description + "<br>" +
-                                " Habitat Type: " + habitat.habitattype + "<br>");
+                                " <h6>Habitat ID:</h6> " + habitat.id + "<br>" +
+                                " <h6>Description:</h6> " + habitat.description + "<br>" +
+                                " <h6>Habitat Type:</h6> " + habitat.habitattype + "<br>");
                             sitehabitats = getSitehabitat(habitat.id)
                             m = 0;
                             while (m < sitehabitats.length) {
                                 $("#habitat_report").append(
-                                    " Site Habitat ID: " + sitehabitats[m].id + "<br>" +
-                                    " Site Habitat name: " + sitehabitats[m].sitehabitatname + "<br>"+
-                                " Site Habitat area: " + sitehabitats[m].area + "<br>");
+                                    " <h6>Site Habitat ID:</h6> " + sitehabitats[m].id + "<br>" +
+                                    " <h6>Site Habitat name:</h6> " + sitehabitats[m].sitehabitatname + "<br>"+
+                                "     <h6>Site Habitat area:</h6> " + sitehabitats[m].area + "<br>");
                                 m= m+1;
                             }
                             console.log('sitehabitats', sitehabitats)
@@ -78,9 +79,11 @@
 
 
     </script>
+
     <link rel="stylesheet" href="style/style.css">
+
 </head>
-<body>
+<body id="page2">
 <nav id="nav">
     <ul id="navigation">
         <li><a href="mainmenu.html" class="first">Main Menu</a></li>
@@ -117,25 +120,18 @@
                 <li><a href="deletelanduse.html">Delete Landuse</a></li>
                 <li><a href="producelandusereport.html">Produce Landuses Report </a></li>
             </ul></li>
-
-
-
-
     </ul>
-</nav>
+</nav><br><br>
 
-<div class="center">
+<button id="show_report">Display report</button>
+<button type="button" ><a href="mainMenu.html"> Return</a></button>
+<div id="habitat_report" style="width: 1000px;background-color: whitesmoke;text-align: center">
+</div><br><br>
 
-    <button id="show_report">Display report</button>
-    <button type="button" ><a href="mainMenu.html"> Return</a></button></div>
-
-<div id="habitat_report" style="background-color: white ">
-
-
-</div>
 
 <div id="footer">
     Copyright @ 2020 By Nz Wetland Group, Unitec, New Zealand.
 </div>
+
 </body>
 </html>
