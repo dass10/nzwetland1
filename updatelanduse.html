@@ -10,96 +10,9 @@
             crossorigin="anonymous">
     </script>
 
-    <script>
-        $.ajax({
-            type: 'Get',
-            dataType: 'JSON',
-            url: 'http://nzwetland.herokuapp.com/api/landuse/',
-            success: function (data) {
-                // location.reload();
 
-                i = 0;
-                while (i < data.length){
-                    landuse = data[i];
-                    $("#landuse_id_input").append("<option value='"+landuse.id+"'>"+landuse.id+" "+landuse.description+" \</option>");
-                    i = i + 1;
-                }
-                $("#landuse_id_input").change(function(){
-                    site = getlanduseInfo($("#landuse_id_input").val());
-                });
-                $("#update_landuse_but").click(function(){
-                    updatelanduseInfo($("#landuse_id_input").val());
-                });
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-
-        function getlanduseInfo (landuse_id) {
-            $.ajax({
-                type: 'Get',
-                dataType: 'JSON',
-                url: 'http://nzwetland.herokuapp.com/api/landuse/'+landuse_id,
-                success: function (data) {
-                    // location.reload();
-                    $("#landuse_id").val(data.id);
-                    $("#landuse_description").val(data.description);
-                    $("#landuse_landusetype").val(data.landusetype);
-
-
-
-
-                    console.log(data);
-
-
-                },
-
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-
-
-        function updatelanduseInfo (landuse_id) {
-            // location.reload();
-            description = $("#landuse_description").val();
-            landusetype = $("#landuse_landusetype").val();
-
-
-
-            $.ajax({
-                type: 'put',
-                dataType: 'JSON',
-                url: 'http://nzwetland.herokuapp.com/api/landuse/'+ updatelanduse,
-                success: function (data) {
-                    alert("Landuse updated successfully");
-                    if (confirm(' Update another land use?')) {
-                        location.reload();}
-                    else{
-                        console.log("");
-                        window.location.href = "mainmenu.html";
-                    }
-                },
-
-
-                error: function (err) {
-                    console.log(err);
-                    errors = JSON.parse(err.responseText);
-                    console.log(errors);
-                    $("#landuse_id_input_err").text(errors.id);
-                }
-            });
-        }
-
-
-        $(document).ready(function () {
-
-
-        });
-    </script>
     <link rel="stylesheet" href="style/style.css">
+    <script src="js/script.js"></script>
 </head>
 <body id="page6">
 <nav id="nav">
@@ -159,11 +72,11 @@
         <p></p>
     </div>
 </form>
-        <div class="div_but" style="text-align: center">
+
 
             <button id="delete_but">Update</button>
             <button type="button" ><a href="mainMenu.html"> Return</a></button>
-        </div>
+
 </div><br>
 
 <div id="footer">

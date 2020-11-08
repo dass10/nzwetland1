@@ -11,63 +11,10 @@
     </script>
 
 
-    <script>
-        $(document).ready(function (){
-            $.ajax({
-                type: 'Get',
-                dataType: 'JSON',
-                url: 'http://nzwetland.herokuapp.com/api/habitat/',
-                success: function (data) {
-                    // location.reload();
 
-                    i = 0;
-                    while (i < data.length){
-                        habitat = data[i];
-                        $("#habitat_id_input").append("<option value='"+habitat.id+"'>" +
-                            "ID:" +habitat.id+
-                            "|Description: "+habitat.description+"\</option>");
-                        i = i + 1;
-                    }
-                    $("#habitat_id_input").change(function (){
-                        habitat = getSinglehabitat($("#habitat_id_input").val());
-                        $("#habitat_id").text(habitat.id);
-                        $("#habitat_description").text(habitat.description);
-                        $("#habitat_habitattype").text(habitat.habitattype);
-
-                    })
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-            $("#delete_but").click(function () {
-                deletehabitat     = $("#habitat_id_input").val();
-                $.ajax({
-                    type: 'DELETE',
-                    dataType: 'JSON',
-                    url: 'http://nzwetland.herokuapp.com/api/habitat/'+deletehabitat,
-                    success: function (data) {
-                        alert('Habitat  deleted successfully');
-                        if (confirm(' Delete another Habitat?')) {
-                            location.reload();}
-                        else{
-                            console.log("");
-                            window.location.href = "mainMenu.html";
-                        }
-
-                    },
-                    error: function (err) {
-                        console.log(err);
-                        errors = JSON.parse(err.responseText);
-                        console.log(errors);
-                        $("#habitat_id_input_err").text(errors.name);
-                    }
-                });
-            });
-        })
-    </script>
-    <script src="js/script.js"></script>
+    <script src="js/getsinglescript.js"></script>
     <link rel="stylesheet" href="style/style.css">
+    <script src="js/script.js"></script>
 </head>
 <body id="page1">
 <nav id="nav">
@@ -112,7 +59,7 @@
    <h1>Delete Habitat</h1>
 
         <form onsubmit="return false">
-            <div class="div_deletehabitat" style="background-color: darkolivegreen">
+            <div class="div_deletehabitat" style="background-color: olive">
                 <p><label> Habitat: </label>
                     <select id="habitat_id_input">
                         <option value="">Select one</option>

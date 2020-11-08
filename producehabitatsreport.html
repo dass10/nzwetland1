@@ -10,77 +10,9 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous">
     </script>
-    <script>
-
-        $(document).ready(function () {
-            $("#show_report").click(function () {
-                $("#habitat_report").empty();
-                $.ajax({
-                    type: 'Get',
-                    dataType: 'JSON',
-                    url: 'http://nzwetland.herokuapp.com/api/habitat/',
-                    success: function (data) {
-                        // location.reload();
-
-                        i = 0;
-                        while (i < data.length) {
-                            habitat = data[i];
-                            $("#habitat_report").append("<hr>" +
-                                " <h6>Habitat ID:</h6> " + habitat.id + "<br>" +
-                                " <h6>Description:</h6> " + habitat.description + "<br>" +
-                                " <h6>Habitat Type:</h6> " + habitat.habitattype + "<br>");
-                            sitehabitats = getSitehabitat(habitat.id)
-                            m = 0;
-                            while (m < sitehabitats.length) {
-                                $("#habitat_report").append(
-                                    " <h6>Site Habitat ID:</h6> " + sitehabitats[m].id + "<br>" +
-                                    " <h6>Site Habitat name:</h6> " + sitehabitats[m].sitehabitatname + "<br>"+
-                                "     <h6>Site Habitat area:</h6> " + sitehabitats[m].area + "<br>");
-                                m= m+1;
-                            }
-                            console.log('sitehabitats', sitehabitats)
-
-                            i = i + 1;
-                        }
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                });
-            })
-
-        });
-
-        function getSitehabitat(habitat) {
-            Sitehabitat = [];
-            $.ajax({
-                type: 'Get',
-                dataType: 'JSON',
-                async: false,
-                url: 'http://nzwetland.herokuapp.com/api/Sitehabitat/',
-                success: function (data) {
-                    // location.reload();
-
-                    j = 0;
-                    while (j < data.length) {
-                        Sitehabitat1 = data[j];
-                        if (Sitehabitat1.habitat == habitat) {
-                            Sitehabitat.push(Sitehabitat1);
-                        }
-                        j = j + 1;
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-            return Sitehabitat;
-        }
-
-
-    </script>
 
     <link rel="stylesheet" href="style/style.css">
+    <script src="js/script.js"></script>
 
 </head>
 <body id="page2">
@@ -121,12 +53,16 @@
                 <li><a href="producelandusereport.html">Produce Landuses Report </a></li>
             </ul></li>
     </ul>
-</nav><br><br>
+</nav><br><br><br><br><br>
 
-<button id="show_report">Display report</button>
-<button type="button" ><a href="mainMenu.html"> Return</a></button>
-<div id="habitat_report" style="width: 1000px;background-color: whitesmoke;text-align: center">
-</div><br><br>
+<button id="show_report" style="text-align: center" >Display report</button>
+
+<div id="habitat_report" style="width: 700px;background-color: whitesmoke;text-align: center">
+</div>
+
+<button type="button"style="text-align: center" ><a href="mainMenu.html" > Return</a></button>
+
+<br><br>
 
 
 <div id="footer">
