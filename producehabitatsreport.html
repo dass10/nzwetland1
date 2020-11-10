@@ -24,16 +24,16 @@
                     while (i < data.length) {
                         habitat = data[i];
                         $("#habitat_report").append("<hr>" +
-                            " <h3>Habitat ID:</h3> " + habitat.id + "<br>" +
-                            " <h3>Description:</h3> " + habitat.description + "<br>" +
-                            " <h3>Habitat Type:</h3> " + habitat.habitattype + "<br>");
+                            " <b>Habitat ID:</b> " + habitat.id + "" +
+                            " <b>Description:</b> " + habitat.description + "" +
+                            " <b>Habitat Type:</b> " + habitat.habitattype + "");
                         sitehabitats = getSitehabitat(habitat.id)
                         m = 0;
                         while (m < sitehabitats.length) {
                             $("#habitat_report").append(
-                                " <h3>Site Habitat ID:</h3> " + sitehabitats[m].id + "<br>" +
-                                " <h3>Site Habitat name:</h3> " + sitehabitats[m].sitehabitatname + "<br>"+
-                                "     <h3>Site Habitat area:</h3> " + sitehabitats[m].area + "<br>");
+                                " <b>Site Habitat ID:</b> " + sitehabitats[m].id + "" +
+                                " <b>Site Habitat name:</b> " + sitehabitats[m].sitehabitatname + ""+
+                                "     <b>Site Habitat area:</b> " + sitehabitats[m].area + "");
                             m= m+1;
                         }
                         console.log('sitehabitats', sitehabitats)
@@ -120,7 +120,7 @@
             </ul></li>
         <button id="logoutBut" >Log out</button>
     </ul>
-</nav><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</nav><br><br><br><br>
 
 <button id="show_report" style="text-align: center" >Display Habitat report</button>
 
@@ -129,7 +129,7 @@
 
 <button type="button"style="text-align: center" ><a href="mainMenu.html" > Return</a></button>
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <div id="footer">

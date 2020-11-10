@@ -779,7 +779,7 @@ ul#navigation ul li a {
     font-family: "Bookman Old Style";
     text-align: center;
     width: 270px;
-    margin: 10px;
+    margin: 40px auto;
     padding: 5px;
     height: fit-content;
     background: linear-gradient(to right, whitesmoke, olive);
