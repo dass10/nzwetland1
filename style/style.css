@@ -6,6 +6,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
 
+
 }
 /* Main Navigation */
 #nav {
@@ -153,6 +154,7 @@ ul#navigation ul li a {
     width: 100px;
     margin: 4px;
     box-shadow: 0 0 20px 9px whitesmoke;
+
 }
 
 #page1  button {
@@ -732,6 +734,9 @@ ul#navigation ul li a {
     margin: 4px;
     box-shadow: 0 0 20px 9px whitesmoke;
 }
+#page8 landuse_report{
+    display: inline-table;
+}
 #page8 #landuse_report{
     border-radius: 30px;
     font-family: "Bookman Old Style";
@@ -774,13 +779,14 @@ ul#navigation ul li a {
     font-family: "Bookman Old Style";
     text-align: center;
     width: 270px;
-    margin: 50px;
+    margin: 10px;
     padding: 5px;
     height: fit-content;
     background: linear-gradient(to right, whitesmoke, olive);
     border-radius: 20px;
     transition: .5s;
     box-shadow: 0 0 20px 9px darkolivegreen;
+    display: flow-root;
 }
 #page9 #logoutBut{
     width: 100px;

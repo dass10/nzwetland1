@@ -9,6 +9,105 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous">
     </script>
+    <script>
+        $(document).ready(function (){
+            $.ajax({
+                type: 'Get',
+                dataType: 'JSON',
+                url: 'http://nzwetland.herokuapp.com/api/landuse/',
+                success: function (data) {
+                    // location.reload();
+
+                    i = 0;
+                    while (i < data.length){
+                        landuse = data[i];
+                        $("#landuse_id_input").append("<option value='"+landuse.id+"'>"+landuse.id+" "+landuse.description+" \</option>");
+                        i = i + 1;
+                        updatelanduse = landuse.id
+                    }
+                    $("#landuse_id_input").change(function(){
+                        site = getlanduseInfo($("#landuse_id_input").val());
+                    });
+                    $("#update_landuse_but").click(function(){
+                        updatelanduseInfo($("#landuse_id_input").val());
+                    });
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+            function getlanduseInfo (landuse_id) {
+                $.ajax({
+                    type: 'Get',
+                    dataType: 'JSON',
+                    url: 'http://nzwetland.herokuapp.com/api/landuse/'+landuse_id+'/',
+                    success: function (data) {
+                        // location.reload();
+                        $("#landuse_id").val(data.id);
+                        $("#landuse_description").val(data.description);
+                        $("#landuse_landusetype").val(data.landusetype);
+
+
+
+
+                        console.log(data);
+
+
+                    },
+
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+
+            $("#update_but").click(function (){
+                description = $("#landuse_description").val();
+                landusetype = $("#landuse_landusetype").val();
+
+
+
+                $.ajax({
+                    type: 'PUT',
+                    dataType: 'JSON',
+                    url: 'http://nzwetland.herokuapp.com/api/landuse/'+ updatelanduse+'/',
+                    data:{
+                        "description":description,
+                        "landusetype":landusetype,
+                    },
+                    success: function (data) {
+                        alert("Landuse updated successfully");
+                        if (confirm(' Update another land use?')) {
+                            location.reload();}
+                        else{
+                            console.log("");
+                            window.location.href = "mainmenu.html";
+                        }
+                    },
+
+
+                    error: function (err) {
+                        console.log(err);
+                        errors = JSON.parse(err.responseText);
+                        console.log(errors);
+                        $("#landuse_id_input_err").text(errors.id);
+                    }
+                });
+            })
+                // location.reload();
+
+
+        })
+
+
+
+    $(document).ready(function () {
+
+
+    });
+    </script>
 
 
     <link rel="stylesheet" href="style/style.css">
@@ -75,7 +174,7 @@
 </form>
 
 
-            <button id="delete_but">Update</button>
+            <button id="update_but">Update</button>
             <button type="button" ><a href="mainMenu.html"> Return</a></button>
 
 </div><br>

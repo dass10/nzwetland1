@@ -9,6 +9,122 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous">
     </script>
+    <script>$(document).ready(function () {
+        $.ajax({
+            type: 'Get',
+            dataType: 'JSON',
+            url: 'https://nzwetland.herokuapp.com/api/Sitehabitat/',
+            success: function (data) {
+                // location.reload();
+
+                i = 0;
+                while (i < data.length) {
+                    sitehabitats = data[i];
+                    $("#siteHabitat_id_input").append("<option value='" + sitehabitats.id + "'>" +
+                        "" + sitehabitats.id +
+                        " | " + sitehabitats.sitehabitatname + "\</option>");
+                    i = i + 1;
+                }
+                $("#siteHabitat_id_input").change(function () {
+                    siteHabitat = getSingleSitehabitat($("#siteHabitat_id_input").val());
+                    console.log('sitehabitast', siteHabitat)
+                    $("#siteHabitat_id").text(siteHabitat.id);
+                    $("#siteHabitat_name").text(siteHabitat.sitehabitatname);
+                    sitename1 = siteHabitat.site;
+                    sitename2 = getSingleSite(sitename1);
+                    console.log('sitename2', sitename2)
+
+                    $("#site_name").text(sitename2.sitename);
+                    sitehabitatlanduse1 = getAssignSitehabitatLanduse($("#siteHabitat_id_input").val())
+                    console.log('shbtlanduse', sitehabitatlanduse1)
+                    j = 0;
+                    while (j < sitehabitatlanduse1.length) {
+                        landuseID = sitehabitatlanduse1[j].landuse;
+                        landuse1 = getSinglelanduse(landuseID);
+
+                        $("#landuse1_input").append("<option value='" + sitehabitatlanduse1[j].id + "'>"
+                            + "LandUseID" + landuse1.id +
+                            " | LandUse Description: " + landuse1.description +
+                            " | Impact: " + sitehabitatlanduse1[j].impact +
+                            "</option>");
+
+                        j++;
+                    }
+                })
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+
+        });
+
+
+        $.ajax({
+            type: 'Get',
+            dataType: 'JSON',
+            url: 'http://nzwetland.herokuapp.com/api/landuse/',
+            success: function (data) {
+                // location.reload();
+
+                i = 0;
+                while (i < data.length) {
+                    landuse = data[i];
+                    $("#landuse_input").append("<option value='" + landuse.id + "'>" +
+                        "" + landuse.id +
+                        " | " + landuse.description + "\</option>");
+                    i = i + 1;
+                }
+                $("#landuse_input").change(function () {
+                    landuse = getSinglelanduse($("#landuse_input").val());
+                    $("#landuse_id").text(landuse.id);
+                    $("#landuse_description").text(landuse.description);
+
+
+                })
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        $("#assign_btn").click(function () {
+
+            sitehabitatID = $("#siteHabitat_id").text();
+            landuseID = $("#landuse_id").text();
+            landuseID = $("#landuse_id").text();
+            Impact = $("#sitehabitatlanduse_impact").val();
+            lanusedescription = $("#landuse_description").text();
+            landusetype1 = $("#landuse_description").text();
+            impact = $('input[name="Impact"]:checked').val();
+            console.log('landuse', landuseID),
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: 'http://nzwetland.herokuapp.com/api/landuse/',
+                    data: {
+                        description: lanusedescription,
+                        landusetype: landusetype1,
+
+                        success: function (data) {
+                            alert('Land use Assigned successfully');
+                            if (confirm(' Add another land use?')) {
+                                location.reload();}
+                            else{
+                                console.log("");
+                                window.location.href = "mainmenu.html";
+                            }
+                        },
+
+                    },
+
+                });
+
+        });
+    })
+
+
+    </script>
 
 
     <script src="js/getsinglescript.js"></script>

@@ -9,6 +9,59 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous">
     </script>
+    <script> $(document).ready(function (){
+        $.ajax({
+            type: 'Get',
+            dataType: 'JSON',
+            url: 'http://nzwetland.herokuapp.com/api/landuse/',
+            success: function (data) {
+                // location.reload();
+
+                i = 0;
+                while (i < data.length){
+                    landuse = data[i];
+                    $("#landuse_input").append("<option value='"+landuse.id+"'>"+landuse.description+" "+landuse.landusetype+"\</option>");
+                    i = i + 1;
+                }
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+        $("#add_landuse_but").click(function () {
+
+            description = $("#landuse_description").val();
+            landusetype= $("#landuse_landusetype").val();
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: 'http://nzwetland.herokuapp.com/api/landuse/',
+                data: {
+
+                    description: description,
+                    landusetype: landusetype,
+
+                },
+                success: function (data) {
+                    alert('land use added successfully');
+                    if (confirm(' Add another land use?')) {
+                        location.reload();}
+                    else{
+                        console.log("");
+                        window.location.href = "mainmenu.html";
+                    }
+                },
+
+
+            });
+
+        });
+
+    })
+    </script>
+
 
 
     <link rel="stylesheet" href="style/style.css">
