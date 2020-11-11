@@ -25,7 +25,7 @@
                         i = 0;
                         while (i < data.length){
                             siteHabitat1 = data[i];
-                            $("#habitat_report").append("<hr>" +
+                            $("#sitehabitat_report").append("<hr>" +
                                 " site habitat id : " + siteHabitat1.id +"<br>"+
                                 " | site habitat name: " + siteHabitat1.sitehabitatname +"<br>"+
                                 " | area: " + siteHabitat1.area+ "<br>" );
@@ -33,7 +33,7 @@
                             sites = getSite(siteHabitat1.site);
                             k = 0;
                             while (k<sites.length){
-                                $("#habitat_report").append(
+                                $("#sitehabitat_report").append(
                                     " Site name: "+ sites[k].sitename+"<br>"
 
                                 );
@@ -43,7 +43,7 @@
                             habitats = getHabitat(siteHabitat1.habitat);
                             h=0;
                             while (h<habitats.length){
-                                $("#habitat_report").append(
+                                $("#sitehabitat_report").append(
                                     " habitat description : "+ habitats[h].description+"<br>"
 
                                 );
@@ -165,11 +165,12 @@
 
 <br><br><br><br>
 
-<button id="show_report">Site habitat report report</button>
+<button id="show_report">Site Habitat Report</button>
+<div id = "sitehabitat_report" class="container">
+</div>
 <button ><a href="mainmenu.html">RETURN</a></button><br><br><br><br><br><br>
 
-<div id = "siteHabitat1_report" class="container">
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div id="footer">
     Copyright @ 2020 By Nz Wetland Group, Unitec, New Zealand.

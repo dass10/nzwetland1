@@ -795,11 +795,17 @@ ul#navigation ul li a {
 }
 #page9 div{
     border-radius: 20px;
-
+    width: 600px;
+    height: fit-content;
+    margin: 40px auto;
     font-family: "Bookman Old Style";
     background: linear-gradient(to right, whitesmoke, darkolivegreen);
     box-shadow: 0 0 20px 9px olive;
+    text-align: center;
+
 }
+
+
 #page9
 td{
     font-size: large;
