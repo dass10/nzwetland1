@@ -14,7 +14,7 @@
             $.ajax({
                 type: 'Get',
                 dataType: 'JSON',
-                url: 'http://nzwetland.herokuapp.com/api/landuse/',
+                url: 'https://nzwetland.herokuapp.com/api/landuse/',
                 success: function (data) {
                     // location.reload();
 
@@ -44,7 +44,7 @@
                 $.ajax({
                     type: 'DELETE',
                     dataType: 'JSON',
-                    url: 'http://nzwetland.herokuapp.com/api/landuse/'+deletelanduse,
+                    url: 'https://nzwetland.herokuapp.com/api/landuse/'+deletelanduse,
                     success: function (data) {
                         alert('Land use Deleted successfully');
                         if (confirm(' Delete another land use?')) {
