@@ -24,7 +24,7 @@ function getSinglehabitat(habitatID) {
         type: 'Get',
         dataType: 'JSON',
         async: false,
-        url: 'http://nzwetland.herokuapp.com/api/habitat/' + habitatID + '/',
+        url: 'https://nzwetland.herokuapp.com/api/habitat/' + habitatID + '/',
         success: function (data) {
             // location.reload();
             habitat1 = data;
